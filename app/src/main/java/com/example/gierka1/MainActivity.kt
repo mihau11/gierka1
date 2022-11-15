@@ -15,12 +15,10 @@ class MainActivity : AppCompatActivity() {
         var guziki = arrayOf(findViewById<ToggleButton>(R.id.b1),findViewById<ToggleButton>(R.id.b2),findViewById<ToggleButton>(R.id.b3),findViewById<ToggleButton>(R.id.b4),findViewById<ToggleButton>(R.id.b5),findViewById<ToggleButton>(R.id.b6),findViewById<ToggleButton>(R.id.b7),findViewById<ToggleButton>(R.id.b8),findViewById<ToggleButton>(R.id.b9))
         var kolejka = arrayOf(1,2,3,4,5,6,7,8,9)
         var label=findViewById<TextView>(R.id.textView)
-        var label2=findViewById<TextView>(R.id.textView2)
         var score=0
         var i =0
         for (g in guziki){
             g.setOnClickListener {
-                label2.text=kolejka.toString()
                 label.text="SCORE: "+score.toString()
                 if((g.id-2131231205)==kolejka[i]){
                     i++
@@ -38,14 +36,14 @@ class MainActivity : AppCompatActivity() {
                             show()
                         }
 
-                        for (i in 0..9){
-                            kolejka[i]=0
+                        for (i in 0..8){
+                            kolejka[i]=100000
                         }
                         var pomoc = 0
-                        for (i in 0..9){
+                        for (i in 0..8){
                             do {
-                                pomoc = Random.nextInt(1, 9)
-                            }while (!(kolejka.contains(pomoc)))
+                                pomoc = Random.nextInt(1, 10)
+                            }while (kolejka.contains(pomoc))
                             kolejka[i] = pomoc
                         }
 
